@@ -2,6 +2,7 @@ package com.example.mygps;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -40,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        button2.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     class MyLocationListener implements LocationListener {
@@ -50,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
             double latitude = loc.getLatitude();
             String msg = "Longtitude : " + longitude + "\nLatitude : " + latitude;
             Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+            intent.putExtra("Longtitude" , longitude);
+            intent.putExtra("Latitude", latitude);
 
             int count = 0;
            while (true)
