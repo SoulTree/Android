@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     int i = Integer.parseInt(str);
                     intList.add(i);
-                    inttext += intList.get(count1++) + ", ";
+                    inttext += intList.get(count1++) + ",   ";
                 }
                 catch(NumberFormatException nf)
                 {
